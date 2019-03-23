@@ -27,9 +27,9 @@ def getwynik(rownaniea, rownanieb):
     if w != 0 and wx != 0 and wy != 0:
         return 'Rozwiazanie ukladu rownan to x=' + str(wx/w) + ' y=' + str(wy/w)
     if w == 0 and wx == 0 and wy == 0:
-        return 'Układ nieoznaczony!'
+        return 'Uklad nieoznaczony!'
     if w == 0 and wx == 0 or wy == 0:
-        return 'Układ sprzeczny!'
+        return 'Uklad sprzeczny!'
 
 
 print('Pierwsze rownanie:')
