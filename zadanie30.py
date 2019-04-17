@@ -29,6 +29,7 @@ while a != 'x':
     print("4 - Wyswietl wspolrzedne")
     print("x - Zakoncz dzialanie programu")
 
+
     a = input("Wbierz opcje:")
 
     if a == '1':
