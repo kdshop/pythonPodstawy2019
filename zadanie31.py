@@ -1,24 +1,16 @@
 import os
-from typing import List, AnyStr
 from datetime import datetime
+from typing import List, AnyStr
+from mkolorki import Kolorki
 
 
 class Pliker:
-    HEADER = "\033[95m"
-    OKBLUE = "\033[94m"
-    OKGREEN = "\033[92m"
-    WARNING = "\033[93m"
-    FAIL = "\033[91m"
-    ENDC = "\033[0m"
-    BOLD = "\033[1m"
-    UNDERLINE = "\033[4m"
-
     def __init__(self, plik="log.txt"):
         self.nazwapliku = plik
 
     def zadanie31polecenie1(self):
         if not self.__ifexists():
-            return Pliker.FAIL + "Plik o nazwie: " + self.nazwapliku + " nie istnieje!" + Pliker.ENDC
+            return Kolorki.FAIL + "Plik o nazwie: " + self.nazwapliku + " nie istnieje!" + Kolorki.ENDC
         else:
             self.__openfile("r+")
             returner = self.__readfile()
@@ -28,7 +20,7 @@ class Pliker:
 
     def zadanie31polecenie2(self):
         if not self.__ifexists():
-            return Pliker.FAIL + "Plik o nazwie: " + self.nazwapliku + " nie istnieje!" + Pliker.ENDC
+            return Kolorki.FAIL + "Plik o nazwie: " + self.nazwapliku + " nie istnieje!" + Kolorki.ENDC
         else:
             self.__openfile()
             self.__writefile([
@@ -38,8 +30,9 @@ class Pliker:
                 " - ",
                 datetime.today().strftime("%H:%m"),
             ])
+            self.__closefile()
 
-            return Pliker.OKGREEN + "Zapis udany!" + Pliker.ENDC
+            return Kolorki.OKGREEN + "Zapis udany!" + Kolorki.ENDC
 
     def __definefilename(self, filename):
         self.nazwapliku = filename
@@ -80,11 +73,11 @@ class Pliker:
 a = 1
 
 while a != "x":
-    print(Pliker.HEADER + "1 - Odczyt rejestru" + Pliker.ENDC)
-    print(Pliker.HEADER + "2 - Zapis do rejestru" + Pliker.ENDC)
-    print(Pliker.HEADER + "3 - Wyjście" + Pliker.ENDC)
+    print(Kolorki.HEADER + "1 - Odczyt rejestru" + Kolorki.ENDC)
+    print(Kolorki.HEADER + "2 - Zapis do rejestru" + Kolorki.ENDC)
+    print(Kolorki.HEADER + "3 - Wyjście" + Kolorki.ENDC)
 
-    a = input(Pliker.OKBLUE + "Wbierz opcje:"+ Pliker.ENDC)
+    a = input(Pliker.OKBLUE + "Wbierz opcje:" + Pliker.ENDC)
 
     if a == "1":
         print(Pliker(input("Podaj nazwe pliku!")).zadanie31polecenie1())
